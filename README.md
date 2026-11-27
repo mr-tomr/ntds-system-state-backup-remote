@@ -127,8 +127,15 @@ same way you would any other copy of domain credential material.
 - **`SECURITY.hiv` can't be captured** under the Backup-Operators-only
   account model (see above) - accepted limitation, not a bug to fix.
 
-See `NOTES.md` for the full chronological debugging history, including bugs
-already found and fixed along the way (a `diskshadow` expose bug caused by a
-PowerShell array-collapse edge case, UTF-16LE log-encoding misreads, orphaned
-VSS shadow copies, and a CIM/WMI permission issue in the original SMB-mapping
-approach).
+
+
+## Followup Commands
+
+Use evil-winrm to copy file down
+
+Then recover lost admin access using the following
+secretsdump.py -ntds ntds.dit -system SYSTEM.hiv LOCAL 
+
+Use the first set of hashes
+
+
